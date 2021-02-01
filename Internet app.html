@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student search</title>
+</head>
+<body>
+	Student Id:<input type="text" id="sid">
+	<input type="button" value="Search student" id="search">
+
+	<script type="text/javascript">
+		var sid=document.getElementById('sid');
+		var search=document.getElementById('search');
+
+		search.addEventListener('click',function () {
+			var xhr=new XMLHttpRequest();
+			xhr.open('GET',"http://localhost:8080/springmvcproject1/api/students/"+sid.value);
+			xhr.send();
+			xhr.onreadystatechange=function(){
+				if (xhr.readyState==4) {
+					if (xhr.status==200) {
+						alert(xhr.responseText);
+					}
+				}
+			}
+
+		});
+
+	</script>
+
+</body>
+</html>
