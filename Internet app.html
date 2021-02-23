@@ -4,6 +4,7 @@
 	<title>Student search</title>
 </head>
 <body>
+	<p>To view your personal info simply type your id and click the Search student button</p>
 	Student Id:<input type="text" id="sid">
 	<input type="button" value="Search student" id="search">
 
@@ -13,7 +14,7 @@
 
 		search.addEventListener('click',function () {
 			var xhr=new XMLHttpRequest();
-			xhr.open('GET',"http://localhost:8080/springmvcproject1/api/students/"+sid.value);
+			xhr.open('GET',"http://localhost:8080/springmvcproject1/api/student/?id="+sid.value);
 			xhr.send();
 			xhr.onreadystatechange=function(){
 				if (xhr.readyState==4) {
